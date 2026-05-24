@@ -134,14 +134,6 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);overscroll
   padding-right:calc(16px + var(--sar));
 }
 .ov-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-#big-ayet-overlay.ov-collapsed{padding-bottom:10px;}
-#big-ayet-overlay.ov-collapsed .ov-head{margin-bottom:0;}
-#big-ayet-overlay.ov-collapsed .ov-body{display:none;}
-.ov-toggle{font-size:11px;color:var(--txt3);cursor:pointer;padding:3px 9px;border:1px solid var(--b1);border-radius:20px;transition:color 0.15s;white-space:nowrap;}
-.ov-toggle:active{color:var(--gold2);}
-/* Sadece collapsed durumda header'daki Göster butonu görünsün */
-.ov-hdr-show{display:none;margin-right:6px;}
-#big-ayet-overlay.ov-collapsed .ov-hdr-show{display:inline;}
 .ov-title{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;}
 .ov-close{font-size:13px;color:var(--txt3);cursor:pointer;padding:4px 10px;border:1px solid var(--b1);border-radius:20px;}
 .ov-arabic{
@@ -153,7 +145,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);overscroll
   min-height:60px;
 }
 .ov-tr{font-size:13px;color:var(--txt2);text-align:center;font-style:italic;margin-bottom:6px;line-height:1.5;}
-.ov-anlam{font-size:14px;color:#ff8080;font-family:Helvetica,Arial,sans-serif;text-align:center;line-height:1.5;margin-bottom:12px;font-weight:400;font-style:italic;}
+.ov-anlam{font-size:11px;color:var(--txt3);text-align:center;line-height:1.4;margin-bottom:12px;}
 .ov-btns{display:flex;gap:8px;justify-content:center;margin-bottom:10px;}
 .ov-btn{padding:9px 18px;border:none;border-radius:20px;font-size:12px;font-weight:600;font-family:inherit;cursor:pointer;}
 .ov-btn.play{background:linear-gradient(135deg,var(--gold),var(--pur));color:#fff;}
@@ -243,114 +235,39 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);overscroll
 .ab.t-no{background:#b52020!important;border:2px solid #e85555!important;}
 .ab.t-no .ab-n{color:#000!important;}
 .test-all-btn{font-size:10px;color:var(--gold2);cursor:pointer;padding:4px 8px;border:1px solid rgba(212,168,83,0.35);border-radius:12px;background:rgba(212,168,83,0.08);}
-
-/* ═══ HATİM ÜSTTÜ BUTONU ═══ */
-.hatim-top-btn{margin:10px 14px 4px;background:linear-gradient(135deg,rgba(212,168,83,0.14),rgba(124,92,232,0.09));border:1.5px solid rgba(212,168,83,0.42);border-radius:var(--r);padding:13px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;position:relative;overflow:hidden;transition:opacity 0.15s;-webkit-tap-highlight-color:transparent;}
-.hatim-top-btn:active{opacity:0.78;}
-.hatim-top-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(212,168,83,0.09) 50%,transparent 100%);animation:htbShimmer 3.5s ease-in-out infinite;}
-@keyframes htbShimmer{0%,100%{transform:translateX(-120%);}60%{transform:translateX(120%)}}
-.htb-icon{font-size:28px;flex-shrink:0;filter:drop-shadow(0 0 6px rgba(212,168,83,0.5));}
-.htb-txt{flex:1;min-width:0;}
-.htb-title{font-size:13px;font-weight:800;color:var(--gold2);letter-spacing:0.06em;text-transform:uppercase;}
-.htb-sub{font-size:10px;color:var(--txt3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.htb-arr{font-size:20px;color:rgba(212,168,83,0.55);font-weight:300;flex-shrink:0;}
-.htb-badge{background:linear-gradient(135deg,var(--gold),var(--pur));color:#fff;font-size:8px;font-weight:800;padding:2px 6px;border-radius:8px;letter-spacing:0.05em;flex-shrink:0;}
-
-/* ═══ HATİM MODU GÖSTERGESI ═══ */
-#hatim-mode-bar{flex-shrink:0;background:linear-gradient(90deg,rgba(212,168,83,0.15),rgba(124,92,232,0.1));border-bottom:1px solid rgba(212,168,83,0.3);padding:6px 16px;display:flex;align-items:center;gap:8px;justify-content:space-between;}
-.hmb-lbl{font-size:10px;font-weight:700;color:var(--gold2);letter-spacing:0.08em;}
-.hmb-pos{font-size:10px;color:var(--txt3);}
-.hmb-stop{font-size:10px;color:var(--red);padding:3px 10px;border:1px solid rgba(232,85,85,0.35);border-radius:12px;cursor:pointer;background:rgba(232,85,85,0.08);}
-
-/* ═══ HATİM MODAL (bottom sheet) ═══ */
-#hatim-modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:400;backdrop-filter:blur(5px);}
-#hatim-modal{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:440px;background:linear-gradient(180deg,var(--card2) 0%,var(--card) 100%);border-radius:24px 24px 0 0;border-top:1px solid var(--b2);z-index:401;padding:10px 20px calc(20px + var(--sab));}
-.hm-pill{width:44px;height:4px;background:var(--b2);border-radius:2px;margin:0 auto 14px;}
-.hm-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.hm-head-ico{font-size:32px;filter:drop-shadow(0 0 8px rgba(212,168,83,0.6));}
-.hm-head-txt{flex:1;}
-.hm-head-title{font-size:18px;font-weight:900;color:var(--txt);}
-.hm-head-sub{font-size:10px;color:var(--txt3);margin-top:2px;}
-.hm-pos-box{background:rgba(212,168,83,0.08);border:1px solid rgba(212,168,83,0.28);border-radius:12px;padding:11px 14px;margin-bottom:16px;}
-.hm-pos-lbl{font-size:9px;font-weight:700;color:var(--gold2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
-.hm-pos-val{font-size:13px;color:var(--txt);font-weight:600;}
-.hm-pos-ago{font-size:10px;color:var(--txt3);margin-top:2px;}
-.hm-btn{width:100%;padding:14px 16px;border:none;border-radius:14px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;margin-bottom:9px;transition:opacity 0.15s;display:flex;align-items:center;justify-content:center;gap:8px;}
-.hm-btn:active{opacity:0.8;}
-.hm-btn:last-child{margin-bottom:0;}
-.hm-btn.hm-primary{background:linear-gradient(135deg,var(--gold),var(--pur));color:#fff;box-shadow:0 4px 16px rgba(124,92,232,0.3);}
-.hm-btn.hm-sec{background:rgba(255,255,255,0.06);border:1px solid var(--b2);color:var(--txt2);}
-.hm-btn.hm-cancel{background:transparent;color:var(--txt3);font-size:13px;padding:10px;}
-#hatim-ov-ctrl{background:rgba(212,168,83,0.07);border-radius:10px;padding:7px 12px;margin:4px 8px 2px;border:1px solid rgba(212,168,83,0.2);}
-.hadv-toggle{width:38px;height:22px;border-radius:11px;border:none;background:rgba(255,255,255,0.1);position:relative;cursor:pointer;transition:background 0.2s;flex-shrink:0;padding:0;}
-.hadv-toggle.on{background:var(--grn);}
-.hadv-knob{position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:left 0.2s;pointer-events:none;}
-.hadv-toggle.on .hadv-knob{left:19px;}
 </style>
 </head>
 <body>
 <div id="app">
 
-<!-- HATİM MOD ÇUBUĞU -->
-<div id="hatim-mode-bar" style="display:none;">
-  <div>
-    <div class="hmb-lbl">📿 HATİM MODU AKTİF</div>
-    <div class="hmb-pos" id="hmb-pos-lbl">—</div>
-  </div>
-  <div class="hmb-stop" onclick="stopHatimMode()">✕ Çık</div>
-</div>
-
 <!-- BIG AYET OVERLAY — sabit üstte -->
 <div id="big-ayet-overlay">
   <div class="ov-head">
-    <div style="display:flex;align-items:center;gap:6px;min-width:0;flex:1;">
-      <div class="ov-title" id="ov-title" style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">—</div>
-      <div id="ov-hatim-badge" style="display:none;background:linear-gradient(135deg,var(--gold),var(--pur));color:#fff;font-size:8px;font-weight:800;padding:2px 7px;border-radius:8px;flex-shrink:0;letter-spacing:0.04em;">HATİM</div>
-    </div>
-    <span class="ov-toggle ov-hdr-show" onclick="toggleOverlayCollapse()">Göster ▼</span>
+    <div class="ov-title" id="ov-title">—</div>
     <div class="ov-close" onclick="closeOverlay()">✕ Kapat</div>
   </div>
-  <!-- Katlanabilir içerik -->
-  <div class="ov-body">
-    <div class="ov-arabic" id="ov-arabic"></div>
-    <div class="ov-tr" id="ov-tr"></div>
-    <div class="ov-anlam" id="ov-anlam"></div>
-    <div class="ov-btns">
-      <button class="ov-btn play" id="play-btn" onclick="toggleAyetPlay()">▶ Dinle</button>
-      <button class="ov-btn mic" id="mic-btn" onclick="startMic()">🎤 Tekrar</button>
-      <button class="ov-toggle" id="ov-toggle-btn" onclick="toggleOverlayCollapse()" style="padding:6px 12px;border-radius:20px;">Gizle ▲</button>
-    </div>
-    <!-- Loop seçici -->
-    <div style="display:flex;align-items:center;gap:5px;justify-content:center;margin:6px 0 4px;flex-wrap:wrap;">
-      <span style="font-size:11px;">🔁</span>
-      <button class="loop-btn on" id="lb-1"  onclick="setLoop(1)">1×</button>
-      <button class="loop-btn"    id="lb-3"  onclick="setLoop(3)">3×</button>
-      <button class="loop-btn"    id="lb-5"  onclick="setLoop(5)">5×</button>
-      <button class="loop-btn"    id="lb-10" onclick="setLoop(10)">10×</button>
-      <button class="loop-btn"    id="lb-0"  onclick="setLoop(0)">∞</button>
-      <input  class="loop-inp" id="loop-custom" type="number" min="1" max="99"
-              placeholder="?" title="Özel sayı" onchange="setLoop(+this.value||1)">
-      <span id="loop-info" style="font-size:10px;color:var(--gold2);min-width:30px;text-align:center;font-weight:700;"></span>
-    </div>
-    <!-- Hatim modunda otomatik devam kontrolü -->
-    <div id="hatim-ov-ctrl" style="display:none;">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-        <div style="font-size:10px;color:var(--txt2);flex:1;">Sıradaki sureye otomatik geç</div>
-        <span id="hatim-loop-info" style="font-size:9px;color:var(--gold2);font-weight:700;min-width:36px;text-align:right;"></span>
-        <button id="hatim-adv-btn" class="hadv-toggle" onclick="toggleHatimAdvance()"><span class="hadv-knob"></span></button>
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <div style="flex:1;">
-          <div style="font-size:10px;color:var(--txt2);">Ezber modu — ayet ayet oku</div>
-          <div style="font-size:9px;color:var(--txt3);margin-top:1px;">Her ayette dur, ileri tuşuyla devam et</div>
-        </div>
-        <button id="hatim-ezber-btn" class="hadv-toggle" onclick="toggleHatimEzber()"><span class="hadv-knob"></span></button>
-      </div>
-    </div>
-    <div class="ov-arrows">
-      <button class="ov-arrow" onclick="prevAyet()">← Önceki</button>
-      <button class="ov-arrow" onclick="nextAyet()">Sonraki →</button>
-    </div>
+  <div class="ov-arabic" id="ov-arabic"></div>
+  <div class="ov-tr" id="ov-tr"></div>
+  <div class="ov-anlam" id="ov-anlam"></div>
+  <div class="ov-btns">
+    <button class="ov-btn play" id="play-btn" onclick="toggleAyetPlay()">▶ Dinle</button>
+    <button class="ov-btn mic" id="mic-btn" onclick="startMic()">🎤 Tekrar</button>
+  </div>
+  <!-- Loop seçici -->
+  <div style="display:flex;align-items:center;gap:5px;justify-content:center;margin:6px 0 4px;flex-wrap:wrap;">
+    <span style="font-size:11px;">🔁</span>
+    <button class="loop-btn on" id="lb-1"  onclick="setLoop(1)">1×</button>
+    <button class="loop-btn"    id="lb-3"  onclick="setLoop(3)">3×</button>
+    <button class="loop-btn"    id="lb-5"  onclick="setLoop(5)">5×</button>
+    <button class="loop-btn"    id="lb-10" onclick="setLoop(10)">10×</button>
+    <button class="loop-btn"    id="lb-0"  onclick="setLoop(0)">∞</button>
+    <input  class="loop-inp" id="loop-custom" type="number" min="1" max="99"
+            placeholder="?" title="Özel sayı" onchange="setLoop(+this.value||1)">
+    <span id="loop-info" style="font-size:10px;color:var(--gold2);min-width:30px;text-align:center;font-weight:700;"></span>
+  </div>
+  <div class="ov-arrows">
+    <button class="ov-arrow" onclick="prevAyet()">← Önceki</button>
+    <button class="ov-arrow" onclick="nextAyet()">Sonraki →</button>
   </div>
 </div>
 
@@ -378,15 +295,6 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);overscroll
 
   <!-- SURELER -->
   <div id="s-sureler" class="scr on">
-    <!-- HATİM ÜSTTÜ BUTONU -->
-    <div class="hatim-top-btn" id="hatim-top-btn" onclick="openHatimFlow()">
-      <div class="htb-icon">📿</div>
-      <div class="htb-txt">
-        <div class="htb-title">HATİM</div>
-        <div class="htb-sub" id="hatim-top-sub">Kur'an'ı baştan sona oku — 30 Cüz</div>
-      </div>
-      <div class="htb-arr">›</div>
-    </div>
     <!-- Arama sonuçları -->
     <div id="search-results" style="display:none;">
       <div class="search-results" id="search-list"></div>
@@ -472,13 +380,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);overscroll
     <div class="sp"></div>
   </div>
 
-  <!-- HATİM & DİNLEME (eski: SKORLAR) -->
+  <!-- SKORLAR -->
   <div id="s-skorlar" class="scr">
-    <!-- Hatim Başlık -->
-    <div style="padding:14px 16px 4px;display:flex;align-items:center;justify-content:space-between;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--txt3);text-transform:uppercase;">Hatim Takibi</div>
-      <button onclick="openHatimFlow()" style="padding:5px 12px;background:linear-gradient(135deg,var(--gold),var(--pur));border:none;border-radius:14px;font-size:10px;font-weight:700;color:#fff;cursor:pointer;font-family:inherit;">📿 Başlat / Devam</button>
-    </div>
+    <!-- Hatim Takibi -->
+    <div style="padding:14px 16px 6px;font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--txt3);text-transform:uppercase;">Hatim Takibi</div>
     <div class="card" style="margin:0 14px 14px;padding:16px;">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
         <div style="width:64px;height:64px;position:relative;flex-shrink:0;">
@@ -495,22 +400,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);overscroll
           <div id="hatim-stat3" style="font-size:10px;color:var(--txt3);margin-top:2px;"></div>
         </div>
       </div>
-      <div style="display:flex;gap:6px;margin-bottom:8px;">
+      <div style="display:flex;gap:6px;margin-bottom:10px;">
         <button id="hv-sure" onclick="setHatimView('sure')" style="flex:1;padding:6px 4px;border:none;border-radius:16px;font-size:10px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--pur));color:#fff;font-family:inherit;">Sure Listesi</button>
         <button id="hv-cuz"  onclick="setHatimView('cuz')"  style="flex:1;padding:6px 4px;border:1px solid var(--b2);border-radius:16px;font-size:10px;font-weight:700;cursor:pointer;background:transparent;color:var(--txt2);font-family:inherit;">30 Cüz</button>
-      </div>
-      <!-- Sure arama -->
-      <div id="hatim-search-wrap" style="position:relative;margin-bottom:8px;">
-        <input id="hatim-search-inp" type="text" placeholder="🔍  Sure ara…" oninput="onHatimSearch(this.value)" autocomplete="off"
-          style="width:100%;padding:8px 30px 8px 12px;background:rgba(255,255,255,0.06);border:1px solid var(--b1);border-radius:20px;color:var(--txt);font-size:12px;font-family:inherit;outline:none;">
-        <span id="hatim-search-clear" onclick="clearHatimSearch()" style="display:none;position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--txt3);font-size:13px;cursor:pointer;">✕</span>
       </div>
       <div id="hatim-sure-list" style="max-height:220px;overflow-y:auto;"></div>
       <div id="hatim-cuz-grid" style="display:none;"></div>
       <button onclick="resumeReading()" id="hatim-devam" style="display:none;width:100%;margin-top:12px;padding:10px;background:linear-gradient(135deg,var(--gold),var(--pur));border:none;border-radius:var(--r2);font-size:12px;font-weight:700;color:#fff;cursor:pointer;font-family:inherit;">↩ Kaldığın Yerden Devam Et</button>
     </div>
-    <!-- Test Geçmişi -->
-    <div style="padding:14px 16px 8px;font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--txt3);text-transform:uppercase;">Test Geçmişi</div>
+    <!-- Skor Geçmişi -->
+    <div style="padding:14px 16px 8px;font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--txt3);text-transform:uppercase;">Skor Geçmişi</div>
     <div class="stats-row" style="margin-bottom:10px;">
       <div class="stat"><div class="stat-v" id="sc-total">0</div><div class="stat-l">Test Sayısı</div></div>
       <div class="stat"><div class="stat-v" id="sc-best">—</div><div class="stat-l">En İyi</div></div>
@@ -586,7 +485,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);overscroll
 <nav id="nav">
   <div class="ni on" id="ni-sureler" onclick="navTo('sureler')"><div class="ni-ico">📖</div><div>Sureler</div></div>
   <div class="ni" id="ni-test-quick" onclick="quickTest()"><div class="ni-ico">⚡</div><div>Test</div></div>
-  <div class="ni" id="ni-skorlar" onclick="navTo('skorlar')"><div class="ni-ico">📿</div><div>Hatim & Dinle</div></div>
+  <div class="ni" id="ni-skorlar" onclick="navTo('skorlar')"><div class="ni-ico">📊</div><div>Skorlar</div></div>
   <div class="ni" id="ni-dualar" onclick="navTo('dualar')"><div class="ni-ico">🤲</div><div>Dualar</div></div>
 </nav>
 
@@ -598,31 +497,6 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);overscroll
     <span onclick="hideQuickPicker()" style="font-size:12px;color:var(--txt3);cursor:pointer;padding:4px 10px;border:1px solid var(--b1);border-radius:20px;">✕ Kapat</span>
   </div>
   <div id="qp-list"></div>
-</div>
-
-<!-- HATİM MODAL (bottom sheet) -->
-<div id="hatim-modal-bg" onclick="closeHatimModal()" style="display:none;"></div>
-<div id="hatim-modal" style="display:none;">
-  <div class="hm-pill"></div>
-  <div class="hm-head">
-    <div class="hm-head-ico">📿</div>
-    <div class="hm-head-txt">
-      <div class="hm-head-title">HATİM</div>
-      <div class="hm-head-sub">Kur'an-ı Kerim'i baştan sona</div>
-    </div>
-  </div>
-  <div class="hm-pos-box" id="hm-pos-box" style="display:none;">
-    <div class="hm-pos-lbl">Kaldığın Yer</div>
-    <div class="hm-pos-val" id="hm-pos-val">—</div>
-    <div class="hm-pos-ago" id="hm-pos-ago"></div>
-  </div>
-  <button class="hm-btn hm-primary" id="hm-devam-btn" onclick="hatimDevamEt()" style="display:none;">
-    <span>↩</span><span>Kaldığın Yerden Devam Et</span>
-  </button>
-  <button class="hm-btn hm-sec" onclick="hatimYenidenBasla()">
-    <span>↺</span><span>Yeniden Başla (Fatiha'dan)</span>
-  </button>
-  <button class="hm-btn hm-cancel" onclick="closeHatimModal()">İptal</button>
 </div>
 
 </div><!-- /app -->
@@ -2364,7 +2238,6 @@ let S={
 };
 let bulbTimer=null, recognition=null, currentAudio=null, isRecording=false, selSureId=null;
 let loopCount=1, _loopCancel=null, _surePlaying=false, _juzPlaying=false, _juzNo=0;
-let _hatimPlaying=false, _hatimCancel=null;
 
 // ═══════════════════════════════
 // HELPERS
@@ -2394,12 +2267,6 @@ function isSeen(sNo,aNo){return!!(S.seen[sNo]&&S.seen[sNo][aNo]);}
 // AUDIO — 3 kaynak fallback
 // ═══════════════════════════════
 function getAudioUrls(sNo,aNo){
-  // Besmele (no:0) için Fatiha 1. ayet sesini kullan — ayrı dosya yok
-  if(aNo===0) return [
-    'https://cdn.islamic.network/quran/audio/128/ar.alafasy/001001.mp3',
-    'https://everyayah.com/data/Alafasy_128kbps/001001.mp3',
-    'https://server8.mp3quran.net/afs/001001.mp3'
-  ];
   const s=String(sNo).padStart(3,'0'), a=String(aNo).padStart(3,'0');
   return [
     `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${s}${a}.mp3`,
@@ -2422,22 +2289,17 @@ function tryPlay(urls, idx, btnEl, onEnd){
 
 function stopAudio(){
   if(_loopCancel){_loopCancel();_loopCancel=null;}
-  if(_hatimCancel){_hatimCancel();_hatimCancel=null;}
   _surePlaying=false;
   _juzPlaying=false;_juzNo=0;
-  _hatimPlaying=false;
   if(currentAudio){currentAudio.pause();currentAudio=null;}
   const btn=document.getElementById('play-btn');if(btn)btn.textContent='▶ Dinle';
   const info=document.getElementById('loop-info');if(info)info.textContent='';
-  const hInfo=document.getElementById('hatim-loop-info');if(hInfo)hInfo.textContent='';
   const sb=document.getElementById('ap-play-sure');if(sb&&sb.textContent.includes('Durdur'))sb.textContent='🎵 Dinle';
 }
 
 function toggleAyetPlay(){
-  if(_hatimPlaying){stopAudio();return;}
   if(currentAudio){stopAudio();return;}
-  if(hatimSeqMode){hatimPlaySure(S.selAyetIdx);}
-  else{playAyet();}
+  playAyet();
 }
 
 function setLoop(n){
@@ -2451,8 +2313,8 @@ function setLoop(n){
 
 function playAyet(sNo,aNo){
   if(!sNo)sNo=S.selSure?.no;
-  if(aNo==null)aNo=S.selSure?.ayetler[S.selAyetIdx]?.no;  // !aNo yerine ==null: 0 (Besmele) geçerli
-  if(!sNo||aNo==null)return;
+  if(!aNo)aNo=S.selSure?.ayetler[S.selAyetIdx]?.no;
+  if(!sNo||!aNo)return;
   const btn=document.getElementById('play-btn');
   const info=document.getElementById('loop-info');
   const total=loopCount===0?Infinity:loopCount;
@@ -2467,11 +2329,7 @@ function playAyet(sNo,aNo){
     tryPlay(getAudioUrls(sNo,aNo),0,btn,()=>{
       if(cancelled)return;
       if(total===Infinity||cur<total)doLoop();
-      else{
-        if(info)info.textContent='';
-        if(btn)btn.textContent='▶ Dinle';
-        // hatim modunda sure-level loop kullanılır; burada otomatik ilerleme yok
-      }
+      else{if(info)info.textContent='';if(btn)btn.textContent='▶ Dinle';}
     });
   }
   doLoop();
@@ -2487,10 +2345,9 @@ function selectAyetSilent(idx){
   document.getElementById('ov-anlam').textContent=a.anlam;
   markSeen(s.no,a.no);
   saveLastPos(s.no,idx);
-  // Overlay kapalıysa aç (ilk açılış veya kapatılmış durum)
+  // Overlay kapalıysa aç (playSure sırasında ayet gösterimi için)
   const ov=document.getElementById('big-ayet-overlay');
-  if(ov&&ov.style.display!=='block'){
-    ov.classList.remove('ov-collapsed'); // Yeni sure başlayınca genişlet
+  if(ov&&ov.style.display==='none'){
     ov.style.display='block';
     const topH=document.getElementById('top-bar')?.offsetHeight||0;
     ov.style.top=topH+'px';
@@ -2498,8 +2355,6 @@ function selectAyetSilent(idx){
     document.getElementById('search-results').style.display='none';
     document.querySelector('.search-wrap').style.display='none';
     document.getElementById('ayet-panel').style.display='block';
-    const apBtn=document.getElementById('ap-play-sure');
-    if(apBtn)apBtn.style.display='none';
     setTimeout(()=>{
       document.getElementById('scroll').style.paddingTop=ov.offsetHeight+'px';
     },30);
@@ -2510,7 +2365,6 @@ function playSure(){
   const s=S.selSure;if(!s||!s.ayetler.length)return;
   const btn=document.getElementById('ap-play-sure');
   if(_surePlaying){stopAudio();return;}
-  stopAudio(); // overlay'deki tekli loop varsa iptal et
   _surePlaying=true;
   if(btn)btn.textContent='⏹ Durdur';
   let idx=S.selAyetIdx;
@@ -2620,9 +2474,6 @@ function go(name){
   if(ts)ts.style.display=name==='test'?'block':'none';
   const topBar=document.getElementById('top-bar');
   if(topBar)topBar.style.display=name==='test'?'none':'block';
-  // Hatim mod çubuğu: test ekranında gizle, diğerlerinde hatimSeqMode'a göre
-  const hmBar=document.getElementById('hatim-mode-bar');
-  if(hmBar)hmBar.style.display=(hatimSeqMode&&name!=='test')?'flex':'none';
   ['sureler','skorlar'].forEach(n=>{const ni=document.getElementById('ni-'+n);if(ni)ni.classList.toggle('on',n===name);});
   const niT=document.getElementById('ni-test-quick');if(niT)niT.classList.toggle('on',name==='test'||name==='result');
   const niD=document.getElementById('ni-dualar');if(niD)niD.classList.toggle('on',name==='dualar');
@@ -2635,7 +2486,6 @@ function go(name){
 function navTo(n){go(n);}
 function quickTest(){
   if(S.screen==='test'){go('test');return;}
-  closeOverlay();
   if(S.selSure&&S.selSure.ayetler.length){startTest();return;}
   showQuickPicker();
 }
@@ -2777,18 +2627,6 @@ function renderSureler(){
   const totalAyets=SURELER.reduce((a,s)=>a+s.ayetler.length,0);
   const pct=totalAyets?Math.round(totalSeen/totalAyets*100):0;
   document.getElementById('top-pct').textContent=pct+'%';
-  // Hatim buton alt yazısı
-  const hsub=document.getElementById('hatim-top-sub');
-  if(hsub){
-    const lpos=loadLastPos();
-    if(lpos){
-      const lsure=SURELER.find(s=>s.no===lpos.sNo);
-      const layet=lsure?.ayetler[lpos.idx];
-      if(lsure&&layet) hsub.textContent=`↩ ${lsure.name} · ${layet.no===0?'Bismillah':layet.no+'. Ayet'} — ${getTimeAgo(lpos.ts)}`;
-    } else {
-      hsub.textContent="Kur'an'ı baştan sona oku — 30 Cüz";
-    }
-  }
   // Kaldığım yer banner'ı
   const pos=loadLastPos();
   const banner=document.getElementById('last-pos-banner');
@@ -2814,7 +2652,7 @@ function renderSureler(){
   },60);
 }
 
-function selectSure(no, autoPlay=true){
+function selectSure(no){
   const sure=SURELER.find(s=>s.no===no);if(!sure)return;
   selSureId=no; S.selSure=sure; S.selAyetIdx=0;
   clearSearch();
@@ -2829,13 +2667,7 @@ function selectSure(no, autoPlay=true){
   renderAyetGrid(sure);
   document.getElementById('ayet-panel').style.display='block';
   document.getElementById('big-ayet').style.display='none';
-  setTimeout(()=>{
-    document.getElementById('ayet-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
-    if(autoPlay){
-      if(hatimSeqMode){selectAyetSilent(0);setTimeout(()=>hatimPlaySure(0),60);}
-      else{selectAyet(0);}
-    }
-  },130);
+  setTimeout(()=>document.getElementById('ayet-panel').scrollIntoView({behavior:'smooth',block:'nearest'}),100);
 }
 
 function renderAyetGrid(sure){
@@ -2857,7 +2689,6 @@ function selectAyet(idx){
   document.getElementById('ov-tr').textContent=a.tr;
   document.getElementById('ov-anlam').textContent=a.anlam;
   const pb=document.getElementById('play-btn');if(pb)pb.textContent='▶ Dinle';
-  const hbadge=document.getElementById('ov-hatim-badge');if(hbadge)hbadge.style.display=hatimSeqMode?'block':'none';
   // Overlay aç
   const ov=document.getElementById('big-ayet-overlay');
   ov.style.display='block';
@@ -2869,9 +2700,6 @@ function selectAyet(idx){
   document.getElementById('search-results').style.display='none';
   document.querySelector('.search-wrap').style.display='none';
   document.getElementById('ayet-panel').style.display='block';
-  // Panel Dinle butonu overlay açıkken gizle (çift kontrol önlemi)
-  const apBtn=document.getElementById('ap-play-sure');
-  if(apBtn)apBtn.style.display='none';
   // Scroll alanını overlay yüksekliği kadar aşağı it
   setTimeout(()=>{
     const ovH=ov.offsetHeight;
@@ -2881,81 +2709,20 @@ function selectAyet(idx){
   markSeen(s.no,a.no);
   saveLastPos(s.no,idx);
   renderAyetGrid(s);
-  updateHatimModeBar();
-  updateHatimOvCtrl();
   stopAudio();
-  if(hatimSeqMode){hatimPlaySure(idx);}
-  else{playAyet(s.no, a.no);}
+  playAyet(s.no, a.no);
 }
 
 function closeOverlay(){
-  const ov=document.getElementById('big-ayet-overlay');
-  ov.style.display='none';
-  ov.classList.remove('ov-collapsed');
-  const tb=document.getElementById('ov-toggle-btn');if(tb)tb.textContent='Gizle ▲'; // body'deki buton
+  document.getElementById('big-ayet-overlay').style.display='none';
   document.getElementById('scroll').style.paddingTop='0';
   document.getElementById('sure-groups').style.display='block';
   document.querySelector('.search-wrap').style.display='block';
-  // Panel Dinle butonu geri göster
-  const apBtn=document.getElementById('ap-play-sure');
-  if(apBtn){apBtn.style.display='';apBtn.textContent='🎵 Dinle';}
   stopAudio();
 }
 
-function toggleOverlayCollapse(){
-  const ov=document.getElementById('big-ayet-overlay');
-  const tb=document.getElementById('ov-toggle-btn');
-  const collapsed=ov.classList.toggle('ov-collapsed');
-  if(tb)tb.textContent=collapsed?'Göster ▼':'Gizle ▲';
-  setTimeout(()=>{
-    document.getElementById('scroll').style.paddingTop=ov.offsetHeight+'px';
-  },20);
-}
-
-
-function prevAyet(){
-  if(S.selAyetIdx>0){
-    selectAyet(S.selAyetIdx-1);
-  } else if(hatimSeqMode && hatimAutoAdvance && S.selSure && S.selSure.no>1){
-    const prevNo=S.selSure.no-1;
-    const prev=SURELER.find(s=>s.no===prevNo);
-    if(prev&&prev.ayetler.length){
-      S.selSure=prev; selSureId=prevNo;
-      renderAyetGrid(prev);
-      document.getElementById('ap-title').textContent=`${prev.no}. ${prev.name} — ${prev.nameTR}`;
-      document.getElementById('ap-info').textContent=`${prev.ayet} ayet · ${prev.yer}`;
-      setTimeout(()=>selectAyet(prev.ayetler.length-1),80);
-    } else {
-      loadOneSure(prevNo);
-      toast('⬇️ Sure yükleniyor...');
-    }
-  }
-}
-function nextAyet(){
-  if(S.selSure&&S.selAyetIdx<S.selSure.ayetler.length-1){
-    selectAyet(S.selAyetIdx+1);
-  } else if(hatimSeqMode && hatimAutoAdvance){
-    const nextNo=(S.selSure?.no||0)+1;
-    if(nextNo<=114){
-      const next=SURELER.find(s=>s.no===nextNo);
-      if(next){
-        if(!next.ayetler.length){
-          toast('⬇️ Sure yükleniyor...');
-          loadOneSure(nextNo);
-          setTimeout(()=>selectSure(nextNo),1600);
-        } else {
-          selectSure(nextNo);
-        }
-      }
-    } else {
-      toast("🎉 Hatim tamamlandı! Allah kabul etsin 🌟");
-      stopHatimMode();
-      closeOverlay();
-    }
-  } else {
-    toast('✓ Son ayet');
-  }
-}
+function prevAyet(){if(S.selAyetIdx>0)selectAyet(S.selAyetIdx-1);}
+function nextAyet(){if(S.selSure&&S.selAyetIdx<S.selSure.ayetler.length-1)selectAyet(S.selAyetIdx+1);else toast('✓ Son ayet');}
 
 function closePanel(){
   closeOverlay();
@@ -2978,7 +2745,6 @@ function ensureMicPerm(cb){
 }
 function startTest(){
   const s=S.selSure;if(!s||!s.ayetler.length){toast('⚠️ Ayet verisi yok');return;}
-  closeOverlay();
   S.testList=s.ayetler.map(a=>({...a,sureNo:s.no,sureName:s.name}));
   S.testIdx=0;S.cor=0;S.wrn=0;S.wrongs=[];S.testResults={};S.retrying=false;S.testSure=s;
   ensureMicPerm(()=>{go('test');renderQ();});
@@ -3053,7 +2819,7 @@ function showAllResults(){
   if(!S.testSure)return;
   S.prevScreen=S.screen;
   go('sureler');
-  selectSure(S.testSure.no, false);
+  selectSure(S.testSure.no);
   setTimeout(()=>{
     const boxes=document.querySelectorAll('.ab');
     boxes.forEach((box,i)=>{
@@ -3134,7 +2900,7 @@ function resumeReading(){
   const sure=SURELER.find(s=>s.no===p.sNo);
   if(!sure||!sure.ayetler.length){toast('⚠️ Sure verisi henüz yüklenmedi');return;}
   navTo('sureler');
-  selectSure(sure.no, false);
+  selectSure(sure.no);
   setTimeout(()=>selectAyet(p.idx),400);
 }
 function getTimeAgo(ts){
@@ -3186,177 +2952,6 @@ function renderCuzGrid(){
 }
 
 let hatimView='sure';
-let hatimSeqMode=false;      // hatim akışında mı (hatim tuşundan gelindi mi)
-let hatimAutoAdvance=false;  // sure bitince otomatik ileri geç (varsayılan: kapalı)
-let hatimEzberModu=false;    // ayet ayet oku, her ayette dur (varsayılan: kapalı)
-
-// ═══════════════════════════════
-// HATİM MODU KONTROL
-// ═══════════════════════════════
-function openHatimFlow(){
-  const pos=loadLastPos();
-  const posBox=document.getElementById('hm-pos-box');
-  const devamBtn=document.getElementById('hm-devam-btn');
-  if(pos){
-    const sure=SURELER.find(s=>s.no===pos.sNo);
-    const ayet=sure?.ayetler[pos.idx];
-    if(posBox) posBox.style.display='block';
-    if(devamBtn) devamBtn.style.display='flex';
-    const pv=document.getElementById('hm-pos-val');
-    const pa=document.getElementById('hm-pos-ago');
-    if(pv&&sure&&ayet) pv.textContent=`${sure.no}. ${sure.name} · ${ayet.no===0?'Bismillah':ayet.no+'. Ayet'}`;
-    if(pa) pa.textContent=getTimeAgo(pos.ts);
-  } else {
-    if(posBox) posBox.style.display='none';
-    if(devamBtn) devamBtn.style.display='none';
-  }
-  document.getElementById('hatim-modal-bg').style.display='block';
-  document.getElementById('hatim-modal').style.display='block';
-}
-
-function closeHatimModal(){
-  document.getElementById('hatim-modal-bg').style.display='none';
-  document.getElementById('hatim-modal').style.display='none';
-}
-
-function hatimDevamEt(){
-  closeHatimModal();
-  setHatimSeqMode(true);
-  resumeReading();
-}
-
-function hatimYenidenBasla(){
-  closeHatimModal();
-  clearLastPos();
-  setHatimSeqMode(true);
-  navTo('skorlar');
-  setTimeout(()=>setHatimView('cuz'),200);
-}
-
-function setHatimSeqMode(on){
-  hatimSeqMode=on;
-  const bar=document.getElementById('hatim-mode-bar');
-  if(bar) bar.style.display=on?'flex':'none';
-  updateHatimOvCtrl();
-}
-
-function stopHatimMode(){
-  hatimSeqMode=false;
-  const bar=document.getElementById('hatim-mode-bar');
-  if(bar) bar.style.display='none';
-  stopAudio();
-  toast('Hatim modu durduruldu');
-}
-
-function updateHatimModeBar(){
-  if(!hatimSeqMode) return;
-  const s=S.selSure;
-  const a=s?.ayetler[S.selAyetIdx];
-  const lbl=document.getElementById('hmb-pos-lbl');
-  if(lbl&&s&&a) lbl.textContent=`${s.name} · ${a.no===0?'Bismillah':a.no+'. Ayet'}`;
-  updateHatimOvCtrl();
-}
-
-function updateHatimOvCtrl(){
-  const ctrl=document.getElementById('hatim-ov-ctrl');
-  if(ctrl) ctrl.style.display=hatimSeqMode?'block':'none';
-  const btn=document.getElementById('hatim-adv-btn');
-  if(btn) btn.classList.toggle('on', hatimAutoAdvance);
-  const eBtn=document.getElementById('hatim-ezber-btn');
-  if(eBtn) eBtn.classList.toggle('on', hatimEzberModu);
-}
-
-function toggleHatimAdvance(){
-  hatimAutoAdvance=!hatimAutoAdvance;
-  updateHatimOvCtrl();
-}
-
-function toggleHatimEzber(){
-  hatimEzberModu=!hatimEzberModu;
-  updateHatimOvCtrl();
-}
-
-// Hatim modunda tüm sureyi baştan sona çalar; loopCount kadar tekrar, sonra dur veya ilerle
-function hatimPlaySure(startIdx=0){
-  if(_hatimPlaying){stopAudio();return;}
-  stopAudio();
-  const s=S.selSure; if(!s||!s.ayetler.length)return;
-  _hatimPlaying=true;
-  const btn=document.getElementById('play-btn');
-  if(btn)btn.textContent='⏹ Dur';
-
-  const total=loopCount===0?Infinity:loopCount;
-  let cancelled=false;
-  _hatimCancel=()=>{cancelled=true; _hatimPlaying=false;};
-  const hInfo=document.getElementById('hatim-loop-info');
-
-  // Ezber modu: sadece tek ayet oku, dur, kullanıcı ileri bassın
-  if(hatimEzberModu){
-    const a=s.ayetler[startIdx]; if(!a){_hatimPlaying=false;if(btn)btn.textContent='▶ Dinle';return;}
-    selectAyetSilent(startIdx);
-    let cur=0;
-    function doEzber(){
-      if(cancelled)return;
-      cur++;
-      if(total!==Infinity&&hInfo) hInfo.textContent=total>1?`${cur}/${total}×`:'';
-      else if(hInfo) hInfo.textContent='∞';
-      tryPlaySafe(getAudioUrls(s.no,a.no),()=>{
-        if(cancelled)return;
-        if(total===Infinity||cur<total){doEzber();}
-        else{_hatimPlaying=false;if(hInfo)hInfo.textContent='';if(btn)btn.textContent='▶ Dinle';}
-      });
-    }
-    doEzber();
-    return;
-  }
-
-  // Normal hatim modu: sureyi baştan sona çal, loopCount kadar tekrar
-  let round=0;
-  function playRound(){
-    if(cancelled)return;
-    round++;
-    const playIdx=round===1?startIdx:0;
-    if(total!==Infinity&&hInfo) hInfo.textContent=total>1?`${round}/${total} tur`:'';
-    else if(hInfo) hInfo.textContent='∞';
-
-    let idx=playIdx;
-    function playNextAyet(){
-      if(cancelled)return;
-      if(idx>=s.ayetler.length){
-        if(total===Infinity||round<total){
-          playRound();
-        } else {
-          _hatimPlaying=false;
-          if(hInfo)hInfo.textContent='';
-          if(btn)btn.textContent='▶ Dinle';
-          if(hatimAutoAdvance){
-            const nextNo=(s.no||0)+1;
-            if(nextNo<=114){
-              const next=SURELER.find(x=>x.no===nextNo);
-              if(next&&next.ayetler.length){selectSure(nextNo);}
-              else{toast('⬇️ Sure yükleniyor...');loadOneSure(nextNo);setTimeout(()=>selectSure(nextNo),1600);}
-            } else {
-              toast("🎉 Hatim tamamlandı! Allah kabul etsin 🌟");
-              stopHatimMode(); closeOverlay();
-            }
-          } else {
-            toast(`✓ ${s.name} tamamlandı`);
-          }
-        }
-        return;
-      }
-      const a=s.ayetler[idx];
-      selectAyetSilent(idx);
-      tryPlaySafe(getAudioUrls(s.no, a.no), ()=>{
-        if(cancelled)return;
-        idx++; playNextAyet();
-      });
-    }
-    playNextAyet();
-  }
-  playRound();
-}
-
 function setHatimView(mode){
   hatimView=mode;
   const btnS=document.getElementById('hv-sure'),btnC=document.getElementById('hv-cuz');
@@ -3372,7 +2967,6 @@ function setHatimView(mode){
   }
   const sl=document.getElementById('hatim-sure-list');if(sl)sl.style.display=mode==='sure'?'block':'none';
   const cg=document.getElementById('hatim-cuz-grid');if(cg)cg.style.display=mode==='cuz'?'block':'none';
-  const sw=document.getElementById('hatim-search-wrap');if(sw)sw.style.display=mode==='sure'?'block':'none';
   if(mode==='cuz')renderCuzGrid();
 }
 
@@ -3440,60 +3034,11 @@ function playJuz(juzNo){
 
   const start=JUZ_START[juzNo-1];
   navTo('sureler');
-  selectSure(start.s, false);
+  selectSure(start.s);
   setTimeout(()=>playFromSure(start.s,start.a===1?0:start.a),420);
 }
 
-function startJuzReading(juzNo){
-  setHatimSeqMode(true);
-  playJuz(juzNo);
-}
-
-function startHatimFromSure(no){
-  setHatimSeqMode(true);
-  navTo('sureler');
-  setTimeout(()=>selectSure(no),200);
-}
-
-function onHatimSearch(val){
-  const q=val.trim().toLowerCase();
-  const clr=document.getElementById('hatim-search-clear');
-  if(clr)clr.style.display=q?'inline':'none';
-  renderHatimSureList(q);
-}
-
-function clearHatimSearch(){
-  const inp=document.getElementById('hatim-search-inp');
-  if(inp)inp.value='';
-  const clr=document.getElementById('hatim-search-clear');
-  if(clr)clr.style.display='none';
-  renderHatimSureList('');
-}
-
-function renderHatimSureList(q){
-  const listEl=document.getElementById('hatim-sure-list');
-  if(!listEl)return;
-  const norm=s=>s.toLowerCase().replace(/[ğ]/g,'g').replace(/[ü]/g,'u').replace(/[ş]/g,'s').replace(/[ı]/g,'i').replace(/[ö]/g,'o').replace(/[ç]/g,'c');
-  const all=SURELER.filter(s=>s.ayetler.length>0);
-  const filtered=q?all.filter(s=>String(s.no).includes(q)||norm(s.name).includes(norm(q))||norm(s.nameTR).includes(norm(q))):all;
-  if(!filtered.length){listEl.innerHTML='<div style="font-size:11px;color:var(--txt3);text-align:center;padding:12px;">Sonuç bulunamadı</div>';return;}
-  listEl.innerHTML=filtered.map(s=>{
-    const ayetler=s.ayetler.filter(a=>a.no!==0);
-    const sc=ayetler.filter(a=>isSeen(s.no,a.no)).length;
-    const sp=ayetler.length?Math.round(sc/ayetler.length*100):0;
-    const col=sp===100?'var(--grn)':sp>0?'var(--gold)':'var(--b2)';
-    const ico=sp===100?'✓':sp>0?'◑':'○';
-    return`<div onclick="startHatimFromSure(${s.no})" style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--b1);cursor:pointer;-webkit-tap-highlight-color:transparent;" ontouchstart="" onmousedown="">
-      <span style="width:14px;text-align:center;font-size:11px;color:${col};">${ico}</span>
-      <span style="font-size:11px;color:var(--txt);flex:1;">${s.no}. ${s.name}</span>
-      <div style="width:56px;height:4px;background:var(--b1);border-radius:2px;overflow:hidden;">
-        <div style="width:${sp}%;height:100%;background:${col};border-radius:2px;"></div>
-      </div>
-      <span style="font-size:9px;color:var(--txt3);width:26px;text-align:right;">${sp}%</span>
-      <span style="font-size:14px;color:var(--txt3);">›</span>
-    </div>`;
-  }).join('');
-}
+function startJuzReading(juzNo){playJuz(juzNo);}
 
 function renderHatim(){
   const totalKnown=SURELER_META.reduce((a,s)=>a+s.ayet,0);
@@ -3516,12 +3061,25 @@ function renderHatim(){
   if(el3)el3.style.color=remaining===0?'var(--grn)':'var(--txt3)';
   if(el3)el3.textContent=remaining>0?`${remaining.toLocaleString('tr')} ayet kaldı`:'✓ Hatim tamamlandı! 🎉';
   // Sure listesi
-  // Arama kutusunu sıfırla ve listeyi yeniden çiz
-  const sinp=document.getElementById('hatim-search-inp');
-  if(sinp)sinp.value='';
-  const sclr=document.getElementById('hatim-search-clear');
-  if(sclr)sclr.style.display='none';
-  renderHatimSureList('');
+  const listEl=document.getElementById('hatim-sure-list');
+  if(listEl){
+    const items=SURELER.filter(s=>s.ayetler.length>0).map(s=>{
+      const ayetler=s.ayetler.filter(a=>a.no!==0);
+      const sc=ayetler.filter(a=>isSeen(s.no,a.no)).length;
+      const sp=ayetler.length?Math.round(sc/ayetler.length*100):0;
+      const col=sp===100?'var(--grn)':sp>0?'var(--gold)':'var(--b2)';
+      const ico=sp===100?'✓':sp>0?'◑':'○';
+      return`<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--b1);">
+        <span style="width:14px;text-align:center;font-size:11px;color:${col};">${ico}</span>
+        <span style="font-size:11px;color:var(--txt);flex:1;">${s.no}. ${s.name}</span>
+        <div style="width:56px;height:4px;background:var(--b1);border-radius:2px;overflow:hidden;">
+          <div style="width:${sp}%;height:100%;background:${col};border-radius:2px;"></div>
+        </div>
+        <span style="font-size:9px;color:var(--txt3);width:26px;text-align:right;">${sp}%</span>
+      </div>`;
+    });
+    listEl.innerHTML=items.length?items.join(''):'<div style="font-size:11px;color:var(--txt3);text-align:center;padding:12px;">Henüz hiç sure okunmadı</div>';
+  }
   // Devam Et butonu
   const devam=document.getElementById('hatim-devam');
   if(devam)devam.style.display=loadLastPos()?'block':'none';

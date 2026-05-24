@@ -1,4 +1,4 @@
-const CACHE = 'kuran-ezber-v2';
+const CACHE = 'kuran-ezber-v3';
 const SHELL = [
   './',
   './index.html',

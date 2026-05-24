@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>İkon Üretici</title>
+<style>
+  body{font-family:sans-serif;padding:30px;background:#111;color:#eee;max-width:500px;}
+  code{background:#222;padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:8px 0;}
+  button{padding:12px 24px;background:#d4a853;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;margin-top:16px;}
+  .ok{color:#45d87a;font-weight:700;}
+  .err{color:#e85555;}
+</style>
+</head>
+<body>
+<h2>🖼️ Kuran Ezberci — PNG İkon Üretici</h2>
+<p>Bu araç <code>icon.svg</code> dosyasından <b>icon-512.png</b> ve <b>icon-192.png</b> dosyalarını indirir.</p>
+
+<p>⚠️ Yerel sunucudan açılması gerekir. Terminalde:</p>
+<code>cd "/home/asim/Desktop/temalar/son  kuran" && python3 -m http.server 8080</code>
+<p>Sonra tarayıcıda: <a href="http://localhost:8080/make-icons.html" style="color:#d4a853;">http://localhost:8080/make-icons.html</a></p>
+
+<button onclick="generateIcons()">⬇️ İkonları İndir</button>
+<div id="status" style="margin-top:16px;"></div>
+
+<script>
+async function makePng(size) {
+  const resp = await fetch('./icon.svg');
+  if (!resp.ok) throw new Error('icon.svg yüklenemedi');
+  const svgText = await resp.text();
+  const blob = new Blob([svgText], {type: 'image/svg+xml'});
+  const url = URL.createObjectURL(blob);
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement('canvas');
+      c.width = c.height = size;
+      const ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0, size, size);
+      c.toBlob(b => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(b);
+        a.download = `icon-${size}.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        resolve();
+      }, 'image/png');
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
+async function generateIcons() {
+  const st = document.getElementById('status');
+  st.innerHTML = '⏳ Oluşturuluyor...';
+  try {
+    await makePng(512);
+    st.innerHTML += '<br><span class="ok">✓ icon-512.png indirildi</span>';
+    await new Promise(r => setTimeout(r, 600));
+    await makePng(192);
+    st.innerHTML += '<br><span class="ok">✓ icon-192.png indirildi</span>';
+    st.innerHTML += '<br><br>✅ İndirilen PNG dosyalarını <b>/home/asim/Desktop/temalar/son  kuran/</b> klasörüne taşı.';
+  } catch(e) {
+    st.innerHTML = `<span class="err">✗ Hata: ${e.message}</span><br>Yerel sunucudan açtığından emin ol.`;
+  }
+}
+</script>
+</body>
+</html>
